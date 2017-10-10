@@ -4,19 +4,18 @@
     <meta charset="utf-8">
     <title>Fashion Leader</title>
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script src="index.js"></script>
     <script type="text/javascript">
     $(function() {
       $('#bt_call').click(function() {
         $.ajax({
           type : "GET",
-          url : "clothes",
-          dataType : "text",
+          url : "/clothes",
           error : function() {
             alert('통신실패!!');
           },
           success : function(data) {
-            $("#rankBox").html(data);
+            alert(data);
+            $("pre > code").html(data);
           }
         });
       });
@@ -25,5 +24,8 @@
   </head>
   <body>
     <input type="button" value="API 호출" id="bt_call">
+    <pre>
+      <code></code>
+    </pre>
   </body>
 </html>
