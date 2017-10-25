@@ -1,26 +1,26 @@
 {
-  "name": "rn",
+  "name": "test",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webpack.dev.config.js",
   "scripts": {
     "clean": "rm -rf build public/bundle.js",
     "build": "babel server --out-dir build && ./node_modules/.bin/webpack",
-    "start": "NODE_ENV=production node ./server/main.js",
-    "development": "NODE_ENV=development node ./server/main.js"
+    "start": "NODE_ENV=production babel-node ./build/main.js",
+    "development": "NODE_ENV=development babel-node ./build/main.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-node6": "^11.0.0",
+    "babel-preset-env": "^1.6.1",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
+    "fs": "0.0.1-security",
     "mysql": "^2.15.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "request": "^2.83.0"
+    "require": "^2.4.20",
+    "requirejs": "^2.3.5"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -29,7 +29,11 @@
     "babel-preset-react": "^6.24.1",
     "react-hot-loader": "^3.1.1",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.2"
+    "webpack-dev-server": "^2.9.3",
+    "react": "latest",
+    "react-dom": "latest",
+    "require": "^2.4.20",
+    "express": "^4.16.2",
+    "mysql": "^2.15.0"
   }
-  
 }

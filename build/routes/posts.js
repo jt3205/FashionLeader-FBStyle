@@ -20,4 +20,18 @@ router.get('/read/:id', function (req, res) {
     res.send('You are reading post ' + req.params.id);
 });
 
-exports.default = router;
+var _default = router;
+exports.default = _default;
+;
+
+var _temp = function () {
+    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+        return;
+    }
+
+    __REACT_HOT_LOADER__.register(router, 'router', 'server/routes/posts.js');
+
+    __REACT_HOT_LOADER__.register(_default, 'default', 'server/routes/posts.js');
+}();
+
+;

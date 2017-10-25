@@ -1,4 +1,4 @@
-var express = require('express');
+import express from 'express';
 
 const router = express.Router();
 
@@ -10,4 +10,4 @@ router.get('/read/:id', (req, res) => {
     res.send('You are reading post ' + req.params.id);
 });
 
-module.exports = router;
+export default router;

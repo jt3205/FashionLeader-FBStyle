@@ -1,16 +1,16 @@
-var express = require('express');
-var WebpackDevServer = require('Webpack-dev-server');
-var webpack = require('webpack');
-var asdf = require('../src/App.js');
+import express from 'express';
+import WebpackDevServer from 'webpack-dev-server';
+import webpack from 'webpack';
 
-var app = express();
-var port = 3000;
-var devPort = 3001;
+const app = express();
+const port = 3000;
+const devPort = 3001;
 
-if(process.env.NODE_ENV == 'development') {
+
+if(process.env.NODE_ENV === 'development') {
     console.log('Server is running on development mode');
 
-    var config = require('../webpack.config.js');
+    const config = require('../webpack.dev.config');
     let compiler = webpack(config);
     let devServer = new WebpackDevServer(compiler, config.devServer);
     devServer.listen(devPort, () => {
@@ -24,19 +24,15 @@ app.get('/hello', (req, res) => {
     return res.send('Can you hear me?');
 });
 
-app.get('/index', function(req, res){
+app.get('/index', function (req, res) {
     return res.render('../public/views/index');
 });
 
-app.get('/test', function(req, res){
+app.get('test', function (req, res) {
     return res.render('../public/views/test');
 });
 
-app.get('/asdf', function(req, res){
-    return asdf.asdf();
-});
-
-var posts = require('./routes/posts')
+import posts from './routes/posts';
 app.use('/posts', posts);
 
 const server = app.listen(port, () => {
