@@ -21213,21 +21213,23 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(4);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _process = __webpack_require__(33);
-
-var _process2 = _interopRequireDefault(_process);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// import React, {Component} from 'react';
+var React = __webpack_require__(4);
+// import fun from '../server/fun';
+
+// var contents = '';
+//
+// function update() {
+//     fun.fun('male', '남한산성', '2017-10-27', function (data) {
+//         this.contents = data;
+//     });
+// }
 
 var App = function (_React$Component) {
     _inherits(App, _React$Component);
@@ -21241,16 +21243,17 @@ var App = function (_React$Component) {
     _createClass(App, [{
         key: 'render',
         value: function render() {
-            return _react2.default.createElement(
-                'h2',
+            // update();
+            return React.createElement(
+                'h1',
                 null,
-                'adsf'
+                'REACT HOT LOADER'
             );
         }
     }]);
 
     return App;
-}(_react2.default.Component);
+}(React.Component);
 
 var _default = App;
 var _default2 = _default;
@@ -21267,92 +21270,6 @@ var _temp = function () {
     __REACT_HOT_LOADER__.register(_default, 'default', '/Users/hynix/Documents/Projects/reallyTest/src/App.js');
 
     __REACT_HOT_LOADER__.register(_default2, 'default', '/Users/hynix/Documents/Projects/reallyTest/src/App.js');
-}();
-
-;
-;
-
-var _temp2 = function () {
-    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-        return;
-    }
-}();
-
-;
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-// var mysql = require('mysql');
-// var express = require('express');
-
-function update(gender, location, date) {
-    console.log('asdf');
-}
-
-function getContents(gender, location, date) {}
-
-//Connection with MYSQL
-// var client = mysql.createConnection({
-//     host: 'gmsgondr.net',
-//     user: 'info3',
-//     password: '1234',
-//     database: 'info3'
-// });
-
-function getClothes(date, location, gender, callback) {
-    var result = null;
-    var data = {
-        date: date,
-        location: location,
-        gender: gender
-    };
-
-    console.log(data);
-    (function (result) {
-        request({ url: 'http://www.fashionup.co.kr/api/clothes?', qs: data }, function (error, response, body) {
-            summary(body, function (weather, temp, clothes) {
-                callback({ weather: weather, temp: temp, clothes: clothes });
-            });
-        });
-    })(result);
-}
-
-function summary(info, callback) {
-    var weather;
-    var temp = JSON.parse(info).weather.temperature;
-    var clothes = JSON.parse(info).cloth;
-    client.connect(function (err) {
-        client.query('Select ko_weather from weather where en_weather = \'' + JSON.parse(info).weather.weather[0].description + '\'', function (error, result, fields) {
-            if (error) {
-                console.log('[[ ------------ 에러남 ------------ ]]');
-                console.log(error);
-                console.log('[[ ------------ 에러남 ------------ ]]');
-            } else {
-                callback(result[0].ko_weather, temp, clothes);
-            }
-        });
-    });
-    return temp;
-}
-;
-
-var _temp = function () {
-    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-        return;
-    }
-
-    __REACT_HOT_LOADER__.register(update, 'update', '/Users/hynix/Documents/Projects/reallyTest/src/process.js');
-
-    __REACT_HOT_LOADER__.register(getContents, 'getContents', '/Users/hynix/Documents/Projects/reallyTest/src/process.js');
-
-    __REACT_HOT_LOADER__.register(getClothes, 'getClothes', '/Users/hynix/Documents/Projects/reallyTest/src/process.js');
-
-    __REACT_HOT_LOADER__.register(summary, 'summary', '/Users/hynix/Documents/Projects/reallyTest/src/process.js');
 }();
 
 ;

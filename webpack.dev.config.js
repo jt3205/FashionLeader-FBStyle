@@ -4,18 +4,20 @@ var fs = require('fs');
 
 
 module.exports = {
+    // target: "node",
     entry: [
         './src/index.js',
         'webpack-dev-server/client?http://0.0.0.0:3001',
         'webpack/hot/only-dev-server',
         "react-hot-loader/patch"
     ],
-    // target: "node",
-    // target: 'web',
+
+    // target: 'node', // in order to ignore built-in modules like path, fs, etc.
     output: {
         path: '/',
         filename: 'bundle.js'
     },
+
 
     devServer: {
         hot: true,
@@ -27,7 +29,6 @@ module.exports = {
             "**": "http://localhost:3000"
         }
     },
-    devtool: 'sourcemap',
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),

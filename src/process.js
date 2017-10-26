@@ -1,5 +1,4 @@
-// var mysql = require('mysql');
-// var express = require('express');
+var request = require('request');
 
 function update(gender, location, date) {
     console.log('asdf');

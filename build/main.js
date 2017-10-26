@@ -18,6 +18,8 @@ var _posts2 = _interopRequireDefault(_posts);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var fun = require('./fun');
+
 var app = (0, _express2.default)();
 var port = 3000;
 var devPort = 3001;
@@ -41,6 +43,17 @@ app.get('/hello', function (req, res) {
 
 app.get('/index', function (req, res) {
     return res.render('../public/views/index');
+});
+
+app.get('/test', function (req, res) {
+    return res.render('../public/views/test');
+});
+
+app.get('/request', function (req, res) {
+    var contents = fun.fun('female', '남한산성', '2017-10-27', function (data) {
+        console.log(data);
+        return res.send(data);
+    });
 });
 
 app.use('/posts', _posts2.default);
